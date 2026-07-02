@@ -3,9 +3,9 @@ function Buttons({text}) {
     return (
 
         <>
-           <div className="flex justify-center ">
+           <div className="flex justify-center p-4">
             <button 
-            className="bg-blue-600 rounded-md w-100 active:scale-95 text-white font-bold p-3 flex justify-center cursor-pointer text-center"
+            className="bg-blue-600 rounded-md w-100 active:scale-95 text-white font-bold p-3  flex justify-center cursor-pointer text-center"
             > {text}
             </button>
            </div>

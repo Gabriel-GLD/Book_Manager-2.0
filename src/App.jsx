@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-    <div  className='flex flex-col itens-center justify-center bg-slate-200 '>
+    <div  className='bg-slate-200 '>
       <Header />
       <Quite />
     </div>
