@@ -2,6 +2,7 @@ import Buttons from "./Buttons";
 import Header from "./Header";
 import Inputs from "./Inputs";
 
+
 function Quite() {
   return (
     <>
@@ -16,12 +17,12 @@ function Quite() {
             <label className="text-lg font-bold text-blue-500" htmlFor="">
               📚Digite o nome do Livro
             </label>
-            <Inputs placeholder="🔍nome do Livro" />
+            <Inputs placeholder="🔍nome do Livro" id="NomeLivro" />
 
             <label className="text-lg font-bold text-blue-500" htmlFor="">
               Digite o Codigo do Livro
             </label>
-            <Inputs placeholder="🔍codigo do livro (apenas numeros)" />
+            <Inputs placeholder="🔍codigo do livro (apenas numeros)" id="CodLivro"/>
 
             <Buttons text="CADASTRAR LIVROS" />
           </div>
