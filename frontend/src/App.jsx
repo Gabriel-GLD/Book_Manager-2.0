@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-    <div  className='bg-slate-200'>
+    <div  className='min-h-screen w-full bg-slate-300'>
        <Header /> 
        <Quite /> 
     </div>
