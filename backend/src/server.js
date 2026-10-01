@@ -4,12 +4,14 @@ import cors from 'cors'
 import routes from './routes/RotasCad.js'
 import connection from './config/database.js'
 
+import dotenv from 'dotenv';
+dotenv.config()
+
 const app = express()
-const port = 3000
 
 app.use(cors())
-app.use(routes)
 app.use(express.json())
+app.use(routes)
 
 
 app.get('/', (req, res) => {
@@ -17,6 +19,6 @@ app.get('/', (req, res) => {
 })
 
 
-app.listen(port, () => {
-    console.log(`server rodando na porta ${port}`)
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`server rodando na porta ${process.env.PORT || 3000}`)
 })
