@@ -3,6 +3,7 @@ import Header from "./Header";
 import Inputs from "./Inputs";
 
 
+
 function Quite() {
   return (
     <>
