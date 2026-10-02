@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors'
 
-import routes from './routes/RotasCad.js'
+import axios from 'axios'
+import router from './routes/RotasCad.js'
 import connection from './config/database.js'
 
 import dotenv from 'dotenv';
@@ -11,12 +12,8 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
-app.use(routes)
+app.use(router)
 
-
-app.get('/', (req, res) => {
-    res.send('get rodando')
-})
 
 
 app.listen(process.env.PORT || 3000, () => {

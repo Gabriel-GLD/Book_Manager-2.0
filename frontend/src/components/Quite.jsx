@@ -4,7 +4,42 @@ import Inputs from "./Inputs";
 
 
 
+
 function Quite() {
+
+
+
+  const CadLivro   =  async () => {
+    try{
+      
+      // conexao com o back e envio dos dados para o banco de dados
+      const resposta = await fetch('http://localhost:3000/cadastro', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          titulo: document.getElementById('NomeLivro').value,
+          autor: document.getElementById('NomeAutor').value
+        })
+      })
+  
+      const data = await resposta.json();
+      if(!resposta.ok) {
+        throw new Error(data.message)
+      }
+  
+      console.log(data)
+  
+    }catch(error){
+      console.error(error)
+  
+    }
+  }
+
+
+
   return (
     <>
       <div className=" w-screen h-screen flex  justify-center p-6">
@@ -21,11 +56,11 @@ function Quite() {
             <Inputs placeholder="🔍nome do Livro" id="NomeLivro" />
 
             <label className="text-lg font-bold text-blue-500" htmlFor="">
-              Digite o Codigo do Livro
+              Digite o Nome do Autor
             </label>
-            <Inputs placeholder="🔍codigo do livro (apenas numeros)" id="CodLivro"/>
+            <Inputs placeholder="Nome do Autor" id="NomeAutor"/>
 
-            <Buttons text="CADASTRAR LIVROS" />
+            <Buttons onClick={CadLivro} text="CADASTRAR LIVROS" />
           </div>
 
           <div className="space-y-4 p-6 bg-slate-100 rounded-md shadow flex flex-col">
