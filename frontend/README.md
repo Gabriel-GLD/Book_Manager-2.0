@@ -1,16 +1,31 @@
-# React + Vite
+# Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicação React/Vite para cadastro e busca de livros. A navegação entre a tela
+principal e a página de empréstimos usa React Router.
 
-Currently, two official plugins are available:
+## Executar
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Copie `.env.example` para `.env` e ajuste `VITE_API_URL` caso a API não esteja
+   em `http://localhost:3000`.
+2. Execute `npm install` e `npm run dev`.
+3. Abra o endereço local informado pelo Vite.
 
-## React Compiler
+`npm run build` gera a versão de produção e `npm run lint` executa o Oxlint.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Arquivos e funcionalidades
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- `src/main.jsx`: ponto de entrada; monta a aplicação dentro de `BrowserRouter`
+  para habilitar a navegação por rotas.
+- `src/App.jsx`: define o layout compartilhado, o cabeçalho e as rotas `/`
+  (cadastro de livros) e `/emprestimos` (página de empréstimos).
+- `src/components/Header.jsx`: mostra o título e o botão que navega para
+  `/emprestimos`.
+- `src/pages/Emprestimos.jsx`: página inicial da área de empréstimos, preparada
+  para receber o formulário dessa funcionalidade.
+- `src/components/Quite.jsx`: controla o formulário de livros, envia
+  `POST /cadastro` à API e mostra mensagens de sucesso ou erro.
+- `src/components/Inputs.jsx`: campo de texto reutilizável, controlado pelo
+  componente que o utiliza.
+- `src/components/Buttons.jsx`: botão reutilizável que aceita ação, tipo e
+  estado desabilitado.
+- `.env.example`: exemplo da URL da API usada no navegador.

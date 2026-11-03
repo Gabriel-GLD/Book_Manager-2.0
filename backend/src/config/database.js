@@ -1,29 +1,23 @@
-// Configs Db
-import mysql from 'mysql2';
+import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
+const database = process.env.DB_NAME;
 
-const db_PASS = process.env.DB_PASS
-const db_NAME = process.env.DB_NAME
+if (!database) {
+  throw new Error('DB_NAME precisa estar definido na configuração do backend.');
+}
 
-
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: db_PASS,
-  database: db_NAME,
-  port: 3306
+const connection = mysql.createPool({
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASS || '',
+  database,
+  port: Number(process.env.DB_PORT || 3306),
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
 });
-
-// Testa a conexão
-connection.connect((err) => {
-    if (err) {
-        console.error(`Erro ao conectar ao banco ${db_NAME}:`, err)
-        return;
-    }
-    console.log(`Conectado com sucesso ao banco de dados`)
-});
-
 
 export default connection;
